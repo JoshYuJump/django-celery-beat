@@ -223,10 +223,10 @@ class PeriodicTask(models.Model):
     """Model representing a periodic task."""
 
     name = models.CharField(
-        _('name'), max_length=200, unique=True,
+        _('name'), max_length=191, unique=True,
         help_text=_('Useful description'),
     )
-    task = models.CharField(_('task name'), max_length=200)
+    task = models.CharField(_('task name'), max_length=191)
     interval = models.ForeignKey(
         IntervalSchedule, on_delete=models.CASCADE,
         null=True, blank=True, verbose_name=_('interval'),
@@ -248,14 +248,14 @@ class PeriodicTask(models.Model):
         help_text=_('JSON encoded keyword arguments'),
     )
     queue = models.CharField(
-        _('queue'), max_length=200, blank=True, null=True, default=None,
+        _('queue'), max_length=191, blank=True, null=True, default=None,
         help_text=_('Queue defined in CELERY_TASK_QUEUES'),
     )
     exchange = models.CharField(
-        _('exchange'), max_length=200, blank=True, null=True, default=None,
+        _('exchange'), max_length=191, blank=True, null=True, default=None,
     )
     routing_key = models.CharField(
-        _('routing key'), max_length=200, blank=True, null=True, default=None,
+        _('routing key'), max_length=191, blank=True, null=True, default=None,
     )
     expires = models.DateTimeField(
         _('expires'), blank=True, null=True,
